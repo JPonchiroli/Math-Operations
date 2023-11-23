@@ -1,20 +1,40 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+
+const Stack = createStackNavigator();
+
+import Home from './screens/Home';
+import Sum from './screens/Sum';
+import Subtract from './screens/Subtract';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Screen
+        name="Welcome to Math Operations"
+        component={Home}
+      />
+
+      <Stack.Screen
+        name="Sum Operation"
+        component={Sum}
+      />
+
+      <Stack.Screen
+        name="Subtract Operation"
+        component={Subtract}
+      />
+
+      <Stack.Screen
+        name="Division Operation"
+        component={Division}
+      />
+
+      <Stack.Screen
+        name="Multiplication Operation"
+        component={Multiplication}
+      />
+
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
